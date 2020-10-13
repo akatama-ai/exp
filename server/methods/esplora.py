@@ -60,12 +60,13 @@ class Esplora():
                 # print('tx_detail', tx_detail)
                 input_data["vout"] = vin["vout"]
                 input_data["is_coinbase"] = False
+                value_ = 0 if "value" not in vin else vin['value']
                 input_data["prevout"] = {
                     "scriptpubkey": vin["scriptSig"]["hex"],
                     "scriptpubkey_asm": vin["scriptSig"]["asm"],
                     "scriptpubkey_type": "type",
                     "scriptpubkey_address": "address",
-                    "value": vin["value"]
+                    "value": value_
                 }
 
             inputs.append(input_data)
