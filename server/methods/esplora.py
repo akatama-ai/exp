@@ -52,7 +52,11 @@ class Esplora():
                     inputs_amount += vin["value"]
 
                 input_data["txid"] = vin["txid"]
-                tx_detail = bitcoin_cli.get_transaction(vin['txid'])
+                tx_detail = {
+                    'amount': 0
+                }
+                if len(vin['txid']) > 60:
+                    tx_detail = bitcoin_cli.get_transaction(vin['txid'])
                 # print('tx_detail', tx_detail)
                 input_data["vout"] = vin["vout"]
                 input_data["is_coinbase"] = False
