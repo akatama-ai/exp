@@ -65,7 +65,7 @@ class Esplora():
                     "scriptpubkey_asm": vin["scriptSig"]["asm"],
                     "scriptpubkey_type": "type",
                     "scriptpubkey_address": "address",
-                    "value": 0
+                    "value": vin["value"]
                 }
 
             inputs.append(input_data)
